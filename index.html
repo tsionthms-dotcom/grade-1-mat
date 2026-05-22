@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="am" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>የአካባቢ ሳይንስ ማጠቃለያ ፈተና | Environmental Science Exam</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for modern looks -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons for polished visuals -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col justify-between text-slate-800">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-brand-600 text-white p-2.5 rounded-xl shadow-md shadow-brand-200 flex items-center justify-center">
+                    <i class="fa-solid fa-leaf text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-slate-950 text-base md:text-lg tracking-tight">የአካባቢ ሳይንስ ፈተና</h1>
+                    <p class="text-xs text-slate-500 font-medium tracking-wide uppercase">Grade 1 & 2 Environmental Science Exam</p>
+                </div>
+            </div>
+            <div id="quiz-badge" class="hidden md:flex items-center space-x-2 bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full text-xs font-semibold">
+                <i class="fa-solid fa-graduation-cap text-brand-600"></i>
+                <span>ማጠቃለያ ፈተና (60 ጥያቄዎች)</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Dynamic Panels -->
+    <main class="flex-grow flex items-center justify-center py-6 px-4">
+        <div class="w-full max-w-4xl">
+
+            <!-- SCREEN 1: Registration Form -->
+            <div id="screen-welcome" class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden transform transition-all duration-300">
+                <div class="bg-gradient-to-br from-brand-700 to-brand-900 p-8 text-white relative overflow-hidden">
+                    <div class="absolute right-0 bottom-0 opacity-10 translate-x-10 translate-y-10">
+                        <i class="fa-solid fa-school text-[250px]"></i>
+                    </div>
+                    <span class="bg-brand-500/30 text-brand-100 border border-brand-400/30 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase inline-block mb-3">አካዳሚክ ምዘና</span>
+                    <h2 class="text-3xl font-extrabold tracking-tight">እንኳን ደህና መጣችሁ!</h2>
+                    <p class="text-brand-100 text-sm mt-1 max-w-xl">እባክዎን ከታች ያለውን መረጃ በትክክል በመሙላት ፈተናውን ይጀምሩ። ሁሉንም ጥያቄዎች በጥንቃቄ ይመልሱ።</p>
+                </div>
+
+                <form id="form-registration" class="p-8 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Full Name Amharic/English -->
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-slate-700" for="student-name">
+                                <i class="fa-regular fa-user text-slate-400 mr-1.5"></i>ሙሉ ስም (Full Name) <span class="text-red-500">*</span>
+                            </label>
+                            <input required type="text" id="student-name" name="student-name" placeholder="ለምሳሌ፡ መሳይ ፈረደኝ" 
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all duration-200 bg-slate-50 hover:bg-slate-100/50">
+                        </div>
+
+                        <!-- ID Number -->
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-slate-700" for="student-id">
+                                <i class="fa-regular fa-id-card text-slate-400 mr-1.5"></i>መለያ ቁጥር (ID Number) <span class="text-red-500">*</span>
+                            </label>
+                            <input required type="text" id="student-id" name="student-id" placeholder="ለምሳሌ፡ EST/0458/18" 
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all duration-200 bg-slate-50 hover:bg-slate-100/50">
+                        </div>
+
+                        <!-- Class / Section -->
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-slate-700" for="student-class">
+                                <i class="fa-solid fa-chalkboard-user text-slate-400 mr-1.5"></i>ክፍል (Class/Section) <span class="text-red-500">*</span>
+                            </label>
+                            <select required id="student-class" name="student-class" 
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all duration-200 bg-slate-50 hover:bg-slate-100/50">
+                                <option value="" disabled selected>ክፍል ይምረጡ...</option>
+                                <option value="1ኛ ክፍል">1ኛ ክፍል (Grade 1)</option>
+                                <option value="2ኛ ክፍል">2ኛ ክፍል (Grade 2)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr class="border-slate-100">
+
+                    <!-- Exam Rules Card -->
+                    <div class="bg-blue-50/60 rounded-2xl p-5 border border-blue-100 flex items-start space-x-4">
+                        <div class="text-blue-600 mt-1"><i class="fa-solid fa-circle-info text-xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-blue-900 text-sm">የፈተና መመሪያዎች (Exam Rules):</h4>
+                            <ul class="text-xs text-blue-800 list-disc list-inside mt-2 space-y-1.5 leading-relaxed">
+                                <li>ይህ ፈተና በድምሩ <strong>60 ጥያቄዎችን</strong> ይዟል።</li>
+                                <li>እያንዳንዱን ጥያቄ ሲመልሱ ትክክለኛውን መልስ እና ዝርዝር ማብራሪያ ወዲያውኑ ማየት ይችላሉ።</li>
+                                <li>ፈተናውን እንደጨረሱ ውጤትዎን በኢሜል በቀጥታ ለላኪው ማስተላለፍ ይችላሉ።</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Start Button -->
+                    <div class="pt-2">
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-brand-200 hover:shadow-xl flex items-center justify-center space-x-2">
+                            <span>ፈተናውን ጀምር (Start Exam)</span>
+                            <i class="fa-solid fa-circle-play text-lg"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- SCREEN 2: Quiz Panel -->
+            <div id="screen-quiz" class="hidden bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+                
+                <!-- Progress Header -->
+                <div class="bg-slate-50 px-6 py-4 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3">
+                        <span class="bg-brand-100 text-brand-800 font-bold px-3 py-1 rounded-lg text-xs tracking-wider">ጥያቄ / Question</span>
+                        <span id="quiz-progress-text" class="text-sm font-bold text-slate-700">1 / 60</span>
+                    </div>
+                    <!-- Real-time Progress Bar -->
+                    <div class="flex-grow md:max-w-md mx-0 md:mx-6 bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                        <div id="quiz-progress-bar" class="bg-brand-600 h-full transition-all duration-300" style="width: 1.66%"></div>
+                    </div>
+                    <div class="text-right">
+                        <span id="quiz-timer" class="text-xs font-mono font-semibold bg-slate-200/70 text-slate-700 px-3 py-1.5 rounded-lg">
+                            <i class="fa-regular fa-clock mr-1 text-slate-500"></i>00:00:00
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Main Quiz Body -->
+                <div class="p-6 md:p-8 space-y-6">
+                    
+                    <!-- Question Prompt Section -->
+                    <div class="space-y-2">
+                        <h3 id="question-text" class="text-xl md:text-2xl font-extrabold text-slate-900 leading-snug">
+                            1. ለእግረኛ መንቀሳቀሻ ብቻ የተፈቀደው መንገድ ምን ይባላል?
+                        </h3>
+                    </div>
+
+                    <!-- Options Grid -->
+                    <div id="options-container" class="grid grid-cols-1 gap-3.5 pt-2">
+                        <!-- Option template generated dynamically -->
+                    </div>
+
+                    <!-- Instant Feedback explanation card -->
+                    <div id="explanation-card" class="hidden transform transition-all duration-300">
+                        <!-- Rendered with JS dynamically inside -->
+                    </div>
+
+                </div>
+
+                <!-- Footer Navigation Controls -->
+                <div class="bg-slate-50 px-6 py-4 border-t border-slate-100 flex items-center justify-between">
+                    <button id="btn-back" class="px-5 py-3 border border-slate-200 hover:border-slate-300 active:bg-slate-100 rounded-xl text-slate-700 font-semibold transition-all duration-200 flex items-center space-x-2 text-sm disabled:opacity-40 disabled:cursor-not-allowed">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>ወደ ኋላ (Back)</span>
+                    </button>
+                    
+                    <button id="btn-next" class="px-5 py-3 bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold rounded-xl transition-all duration-200 flex items-center space-x-2 text-sm">
+                        <span>ዝለል / ቀጣይ (Skip/Next)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <button id="btn-finish" class="hidden px-5 py-3 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-bold rounded-xl transition-all duration-200 flex items-center space-x-2 text-sm shadow-md shadow-red-200">
+                        <span>ፈተናውን ጨርስ (Submit Exam)</span>
+                        <i class="fa-solid fa-check-double"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SCREEN 3: Results Dashboard -->
+            <div id="screen-results" class="hidden bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+                <!-- Top Ribbon -->
+                <div class="bg-slate-950 p-8 text-white relative overflow-hidden">
+                    <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 translate-x-12">
+                        <i id="badge-trophy-bg" class="fa-solid fa-trophy text-[220px]"></i>
+                    </div>
+                    <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="text-center md:text-left">
+                            <span class="bg-white/10 text-white border border-white/20 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase inline-block mb-3">የውጤት ማጠቃለያ</span>
+                            <h2 class="text-3xl font-black tracking-tight" id="result-greeting">የፈተና ውጤትዎ ተዘጋጅቷል!</h2>
+                            <p class="text-slate-400 text-sm mt-1">የእርስዎን አጠቃላይ ውጤት እና ዝርዝር አፈጻጸም ከታች ይመልከቱ።</p>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-md border border-white/10 px-6 py-4 rounded-2xl text-center shadow-inner min-w-[150px]">
+                            <span class="text-xs uppercase text-slate-400 font-bold block mb-1">አጠቃላይ ውጤት</span>
+                            <span class="text-4xl font-extrabold block text-emerald-400" id="result-score-percentage">0%</span>
+                            <span class="text-xs text-slate-300 block mt-1" id="result-score-ratio">0/60 ጥያቄዎች</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student info details and primary email trigger -->
+                <div class="p-6 md:p-8 space-y-8">
+                    
+                    <!-- Metadata Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 bg-slate-50 p-5 rounded-2xl border border-slate-100 text-center md:text-left">
+                        <div>
+                            <span class="text-xs text-slate-500 font-medium block">ተማሪ (Student)</span>
+                            <span class="font-bold text-slate-800 text-base" id="res-student-name">-</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-500 font-medium block">መለያ ቁጥር (ID Number)</span>
+                            <span class="font-bold text-slate-800 text-base" id="res-student-id">-</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-500 font-medium block">ክፍል (Class/Section)</span>
+                            <span class="font-bold text-slate-800 text-base" id="res-student-class">-</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-500 font-medium block">የፈጀው ጊዜ (Duration)</span>
+                            <span class="font-bold text-slate-800 text-base" id="res-student-time">-</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Panel for sending scores -->
+                    <div class="bg-gradient-to-r from-emerald-50 to-emerald-100 border border-emerald-200 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-emerald-600 text-white p-4 rounded-2xl shadow-md flex items-center justify-center mt-1">
+                                <i class="fa-solid fa-envelope-open-text text-2xl"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h3 class="font-black text-emerald-950 text-lg">ውጤትዎን ለከፍተኛ አስተማሪዎ ይላኩ!</h3>
+                                <p class="text-sm text-emerald-800 leading-relaxed max-w-lg">
+                                    ውጤትዎን ወደ <strong>mesayferedegn2@gmail.com</strong> በመላክ በመምህሩ የውጤት መመዝገቢያ ቋት ላይ እንዲመዘገብ ማድረግ ይችላሉ።
+                                </p>
+                            </div>
+                        </div>
+                        <button id="btn-send-email" class="w-full md:w-auto bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-extrabold py-4 px-8 rounded-2xl transition-all duration-200 shadow-lg shadow-emerald-200 hover:shadow-xl flex items-center justify-center space-x-3 whitespace-nowrap">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>ውጤቴን በኢሜል ላክ</span>
+                        </button>
+                    </div>
+
+                    <!-- Custom notification area -->
+                    <div id="email-notif" class="hidden bg-slate-100 text-slate-700 p-4 rounded-xl border border-slate-200 text-xs flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-info text-slate-500"></i>
+                        <span>ኢሜል ለመላክ የደብዳቤ መተግበሪያዎ (Mail client) ይከፈታል። እባክዎን አያስተካክሉት፣ ቀጥታ ይላኩ።</span>
+                    </div>
+
+                    <!-- Performance Breakdown Title -->
+                    <div class="space-y-4">
+                        <h3 class="font-extrabold text-slate-900 text-xl flex items-center space-x-2">
+                            <i class="fa-solid fa-square-poll-vertical text-brand-600"></i>
+                            <span>የጥያቄዎች ምላሽ ትንተና (Question Review Dashboard)</span>
+                        </h3>
+                        
+                        <!-- List of Questions with answers -->
+                        <div id="results-breakdown-container" class="space-y-4 max-h-[500px] overflow-y-auto pr-2 custom-scroll">
+                            <!-- Injected programmatically by Javascript -->
+                        </div>
+                    </div>
+
+                    <!-- Reset Quiz Button -->
+                    <div class="pt-4 flex justify-center border-t border-slate-100">
+                        <button id="btn-reset" class="px-6 py-3 border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold rounded-xl transition-all duration-200 flex items-center space-x-2 text-sm">
+                            <i class="fa-solid fa-arrow-rotate-left"></i>
+                            <span>ፈተናውን እንደገና ለመፈተን (Restart Exam)</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Page Footer -->
+    <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+        <p>© 2026 የአካባቢ ሳይንስ ማጠቃለያ ፈተና | የላቀ የትምህርት ጥራት መገምገሚያ</p>
+    </footer>
+
+    <!-- Comprehensive Quiz Database Logic -->
+    <script>
+        // Master list of 60 questions with dual translation and explanations.
+        const examQuestions = [
+            {
+                id: 1,
+                question: "ለእግረኛ መንቀሳቀሻ ብቻ የተፈቀደው መንገድ ምን ይባላል?",
+                options: [
+                    { key: "ሀ", text: "የእግረኛ መንገድ" },
+                    { key: "ለ", text: "የመኪና መንገድ" },
+                    { key: "ሐ", text: "የባቡር መንገድ" }
+                ],
+                correct: "ሀ",
+                explanationAm: "የእግረኛ መንገድ ሰዎች በደህንነት ለመንቀሳቀስ ብቻ የተፈቀደላቸው የእግረኛ የእግረኛ መሄጃ መንገድ ነው።",
+                explanationEn: "A sidewalk is a pedestrian path designed specifically and safely for people traveling on foot."
+            },
+            {
+                id: 2,
+                question: "ለተሸከርካሪዎች መጓዣ ብቻ የተፈቀደው መንገድ ማን ይባላል?",
+                options: [
+                    { key: "ሀ", text: "የቤት ውስጥ መንገድ" },
+                    { key: "ለ", text: "የተሽከርካሪ መንገድ" },
+                    { key: "ሐ", text: "የእግረኛ መንገድ" }
+                ],
+                correct: "ለ",
+                explanationAm: "የተሽከርካሪ መንገድ መኪናዎች፣ አውቶቡሶች እና ሌሎች ተሸከርካሪዎች ብቻ እንዲጓዙበት የተሰራ መንገድ ነው።",
+                explanationEn: "A roadway (vehicle road) is a path built specifically for motor vehicles to travel on."
+            },
+            {
+                id: 3,
+                question: "እግረኞች ከመኪና መንገድ በተቃራኒ (ግራ) የሚጓዙት ለምንድን ነው?",
+                options: [
+                    { key: "ሀ", text: "መኪናዎችን ለማየት" },
+                    { key: "ለ", text: "በፍጥነት ለመሮጥ" },
+                    { key: "ሐ", text: "ለመጫወት" }
+                ],
+                correct: "ሀ",
+                explanationAm: "በግራ በኩል መጓዝ ከፊት የሚመጡ ተሸከርካሪዎችን በግልፅ አይቶ ራስን ለመጠበቅ ይረዳል።",
+                explanationEn: "Walking on the left side helps pedestrians face oncoming traffic, enabling them to see oncoming vehicles clearly and stay safe."
+            },
+            {
+                id: 4,
+                question: "በመገናኛ መንገዶች ላይ እንቅስቃሴን የሚቆጣጠረው መብራት ማን ይባላል?",
+                options: [
+                    { key: "ሀ", text: "የቤት መብራት" },
+                    { key: "ለ", text: "የትራፊክ መብራት" },
+                    { key: "ሐ", text: "የፀሐይ ብርሃን" }
+                ],
+                correct: "ለ",
+                explanationAm: "የትራፊክ መብራት በተሽከርካሪ እና በእግረኛ መካከል የሚኖረውን እንቅስቃሴ በስርዓት ለመምራት ይጠቅማል።",
+                explanationEn: "Traffic lights regulate the flow of vehicles and pedestrians at intersections to prevent accidents."
+            },
+            {
+                id: 5,
+                question: "የትራፊክ መብራት በአጠቃላይ ስንት ቀለማት አሉት?",
+                options: [
+                    { key: "ሀ", text: "2 ቀለማት" },
+                    { key: "ለ", text: "3 ቀለማት" },
+                    { key: "ሐ", text: "4 ቀለማት" }
+                ],
+                correct: "ለ",
+                explanationAm: "የትራፊክ መብራት ቀይ፣ ቢጫ እና አረንጓዴ የተሰኙ 3 ዋና ዋና ቀለማት አሉት።",
+                explanationEn: "A standard traffic signal light consists of three colors: Red, Yellow, and Green."
+            },
+            {
+                id: 6,
+                question: "በትራፊክ መብራት ውስጥ ''ቀይ'' ቀለም ምን ማለት ነው?",
+                options: [
+                    { key: "ሀ", text: "ሂድ" },
+                    { key: "ለ", text: "ቁም" },
+                    { key: "ሐ", text: "ተዘጋጅ" }
+                ],
+                correct: "ለ",
+                explanationAm: "በማንኛውም የትራፊክ መብራት ላይ 'ቀይ' ቀለም በአፋጣኝ እንዲቆሙ ያዝዛል።",
+                explanationEn: "The color 'Red' on a traffic light indicates an immediate order to stop."
+            },
+            {
+                id: 7,
+                question: "በትራፊክ መብራት ውስጥ ''ቢጫ'' ቀለም ምንን ያሳያል?",
+                options: [
+                    { key: "ሀ", text: "ቁም" },
+                    { key: "ለ", text: "ሂድ" },
+                    { key: "ሐ", text: "ተዘጋጅ" }
+                ],
+                correct: "ሐ",
+                explanationAm: "የቢጫ መብራት አሽከርካሪዎች ለመቆም ወይም ለመንቀሳቀስ እንዲዘጋጁ የሚያስጠነቅቅ ምልክት ነው።",
+                explanationEn: "The 'Yellow' light signals motorists and pedestrians to prepare to stop or transition."
+            },
+            {
+                id: 8,
+                question: "በትራፊክ መብራት ውስጥ ''አረንጓዴ'' ቀለም ምን ማለት ነው?",
+                options: [
+                    { key: "ሀ", text: "ሂድ" },
+                    { key: "ለ", text: "ቁም" },
+                    { key: "ሐ", text: "ተዘጋጅ" }
+                ],
+                correct: "ሀ",
+                explanationAm: "በእግረኛ ወይም በተሽከርካሪ መብራት ላይ አረንጓዴ ቀለም መብራቱ መንገዱ ክፍት መሆኑን እና መሄድ እንደሚቻል ያሳያል።",
+                explanationEn: "The 'Green' light signifies permission to proceed safely along the road."
+            },
+            {
+                id: 9,
+                question: "እግረኞች መንገድ ከመሻገራቸው በፊት ወዴት መመልከት አለባቸው?",
+                options: [
+                    { key: "ሀ", text: "ወደ ሰማይ" },
+                    { key: "ለ", text: "ወደ ግራና ቀኝ" },
+                    { key: "ሐ", text: "ወደ ኋላ ብቻ" }
+                ],
+                correct: "ለ",
+                explanationAm: "ማንኛውንም መንገድ ከመሻገራችን በፊት ምንም ዓይነት መኪና እንደማይመጣ ለማረጋገጥ መጀመሪያ ወደ ግራ እና ወደ ቀኝ ማየት አለብን።",
+                explanationEn: "Before crossing any road, always look to the left and to the right to verify no oncoming cars are in proximity."
+            },
+            {
+                id: 10,
+                question: "መኪና መንገድ ላይ በደኅንነት ለመሻገሪያ የሚጠቅመው መስመር የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "የእግረኛ ማቋረጫ መስመር (Zebra Crossing)" },
+                    { key: "ለ", text: "ቢጫ መስመር" },
+                    { key: "ሐ", text: "የተሰመረው ግድግዳ" }
+                ],
+                correct: "ሀ",
+                explanationAm: "የእግረኛ ማቋረጫ መስመር (የሜዳ አህያ መስመር) እግረኞች በሰላም መንገድ የሚሻገሩበት ምልክት ነው።",
+                explanationEn: "A pedestrian crosswalk (Zebra Crossing) is a designated road striping that allows pedestrians to cross safely."
+            },
+            {
+                id: 11,
+                question: "ከተሰጡት ውስጥ ለተሸከርካሪ አደጋ መንሥኤ ሊሆን የሚችለው የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "በመንገድ ላይ መጫወት" },
+                    { key: "ለ", text: "በግራ በኩል መጓዝ" },
+                    { key: "ሐ", text: "ምልክቶችን ማክበር" }
+                ],
+                correct: "ሀ",
+                explanationAm: "በመኪና መንገድ ላይ ወይም አጠገብ መጫወት ለመኪና አደጋ የሚዳርግ በጣም አደገኛ ተግባር ነው።",
+                explanationEn: "Playing on or near the street is a dangerous behavior that often leads to vehicle-related accidents."
+            },
+            {
+                id: 12,
+                question: "የኤድስ ሕመም መንሥኤ የትኛው ቫይረስ ነው?",
+                options: [
+                    { key: "ሀ", text: "ኮቪድ-19" },
+                    { key: "ለ", text: "ኤች.አይ.ቪ (HIV)" },
+                    { key: "ሐ", text: "የጉንፋን ቫይረስ" }
+                ],
+                correct: "ለ",
+                explanationAm: "ኤድስ (AIDS) የሚከሰተው በኤች.አይ.ቪ (HIV) ቫይረስ አማካኝነት የሰውነት መከላከያ አቅም ሲዳከም ነው።",
+                explanationEn: "AIDS is caused by the Human Immunodeficiency Virus (HIV), which attacks the human immune system."
+            },
+            {
+                id: 13,
+                question: "ኤች.አይ.ቪ በዋናነት በምን መንገድ ከሰው ወደ ሰው ይተላለፋል?",
+                options: [
+                    { key: "ሀ", text: "በደም ንክኪ" },
+                    { key: "ለ", text: "አብሮ በመቀመጥ" },
+                    { key: "ሐ", text: "በትምህርት ቤት" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ኤች.አይ.ቪ (HIV) በዋናነት በደም ንክኪ እና ጥንቃቄ በሌለው ግንኙነት ይተላለፋል።",
+                explanationEn: "HIV is primarily transmitted through direct blood contact, sharing sharp medical objects, and unprotected contact."
+            },
+            {
+                id: 14,
+                question: "ኤች.አይ.ቪ በሰውነታችን ውስጥ የሚያጠቃው ምንድን ነው?",
+                options: [
+                    { key: "ሀ", text: "የተፈጥሮ በሽታ መከላከያን" },
+                    { key: "ለ", text: "ጥርስን" },
+                    { key: "ሐ", text: "ፀጉርን" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ኤች.አይ.ቪ በሰውነት ውስጥ ያሉ የበሽታ መከላከያ ህዋሳትን በማጥቃት ሰውነታችን በቀላሉ በበሽታ እንዲጠቃ ያደርጋል።",
+                explanationEn: "HIV targets and weakens the body's natural immune system, making it harder to fight off other illnesses."
+            },
+            {
+                id: 15,
+                question: "ስለታማ ነገሮችን (ምላጭ፣ መርፌ) በጋራ መጠቀም ምን ያመጣል?",
+                options: [
+                    { key: "ሀ", text: "ጤናማ ያደርጋል" },
+                    { key: "ለ", text: "ለኤች.አይ.ቪ ያጋልጣል" },
+                    { key: "ሐ", text: "ጥንካሬ ይሰጣል" }
+                ],
+                correct: "ለ",
+                explanationAm: "ስለታም ነገሮችን በጋራ መጠቀም በቫይረሱ የተበከለ ደም በቀጥታ ወደ ሌላ ሰው እንዲተላለፍ ስለሚያደርግ ለኤች.አይ.ቪ ያጋልጣል።",
+                explanationEn: "Sharing sharp items like razors and needles poses a severe risk of transmitting HIV via contaminated blood."
+            },
+            {
+                id: 16,
+                question: "ኤች.አይ.ቪ በደማቸው ውስጥ ላለባቸው ሕፃናት ምን ማሳየት አለብን?",
+                options: [
+                    { key: "ሀ", text: "ፍቅርና ኀዘኔታ" },
+                    { key: "ለ", text: "መገለል" },
+                    { key: "ሐ", text: "ፍርሃት" }
+                ],
+                correct: "ሀ",
+                explanationAm: "በኤች.አይ.ቪ የተያዙ ህጻናት እንደ ማንኛውም ህጻን ፍቅር፣ እንክብካቤ እና ድጋፍ ያስፈልጋቸዋል።",
+                explanationEn: "Children living with HIV deserve love, care, compassion, and support rather than isolation or fear."
+            },
+            {
+                id: 17,
+                question: "ከሚከተሉት ውስጥ ኤች.አይ.ቪ የማይተላለፍበት መንገድ የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "በደም ንክኪ" },
+                    { key: "ለ", text: "አብሮ በመጫወትና በመብላት" },
+                    { key: "ሐ", text: "ስለታም ነገር በማጋራት" }
+                ],
+                correct: "ለ",
+                explanationAm: "ኤች.አይ.ቪ በምራቅ፣ አብሮ በመጫወት፣ እጅ በመጨባበጥ ወይም ምግብ በጋራ በመመገብ አይተላለፍም።",
+                explanationEn: "HIV cannot be transmitted through casual interactions such as playing, sharing food, or hugging."
+            },
+            {
+                id: 18,
+                question: "የትራፊክ አደጋን ለመቀነስ ምን ማድረግ አለብን?",
+                options: [
+                    { key: "ሀ", text: "በፍጥነት መሮጥ" },
+                    { key: "ለ", text: "የትራፊክ ደንቦችን ማክበር" },
+                    { key: "ሐ", text: "መንገድ ላይ መጫወት" }
+                ],
+                correct: "ለ",
+                explanationAm: "የመንገድ ትራፊክ ደንቦችን እና ምልክቶችን በትክክል መከተል አደጋዎችን በከፍተኛ ሁኔታ ይቀንሳል።",
+                explanationEn: "Strict adherence to traffic rules, signs, and instructions is key to preventing accidents and saving lives."
+            },
+            {
+                id: 19,
+                question: "እግረኞች መንገድ ላይ ሲጓዙ የትኛውን አቅጣጫ መያዝ አለባቸው?",
+                options: [
+                    { key: "ሀ", text: "የግራ አቅጣጫን" },
+                    { key: "ለ", text: "የቀኝ አቅጣጫን" },
+                    { key: "ሐ", text: "የመንገዱን መሃል" }
+                ],
+                correct: "ሀ",
+                explanationAm: "በአገራችን የመንገድ ህግ መሰረት እግረኞች የእግረኛ መንገድ በሌለበት ሁኔታ የግራውን አቅጣጫ መያዝ አለባቸው።",
+                explanationEn: "Pedestrians walking on roads without sidewalks should stay on the left to face approaching vehicles directly."
+            },
+            {
+                id: 20,
+                question: "የእግረኛ ማስተላለፊያ መብራት ላይ ''ቀይ ሰው'' ምስል ምን ያሳያል?",
+                options: [
+                    { key: "ሀ", text: "መንገድ አቋርጥ" },
+                    { key: "ለ", text: "አትሻገር (ቁም)" },
+                    { key: "ሐ", text: "ሩጥ" }
+                ],
+                correct: "ለ",
+                explanationAm: "የእግረኛ መሻገሪያ መብራት ላይ ያለው 'ቀይ ሰው' ምስል እግረኞች እንዳይሻገሩ እና እንዲቆሙ ያዝዛል።",
+                explanationEn: "The illuminated 'Red Person' symbol indicates that pedestrians must not cross the street."
+            },
+            {
+                id: 21,
+                question: "የእግረኛ ማስተላለፊያ መብራት ላይ ''አረንጓዴ ሰው'' ምስል ምን ማለት ነው?",
+                options: [
+                    { key: "ሀ", text: "ቁም" },
+                    { key: "ለ", text: "መንገድ አቋርጥ (ሂድ)" },
+                    { key: "ሐ", text: "ተኛ" }
+                ],
+                correct: "ለ",
+                explanationAm: "የእግረኛ መሻገሪያ መብራት ላይ የሚታየው 'አረንጓዴ ሰው' ምስል እግረኞች በደህና መሻገር እንደሚችሉ ያሳያል።",
+                explanationEn: "An active 'Green Person' symbol signifies that pedestrians can cross the crosswalk safely."
+            },
+            {
+                id: 22,
+                question: "ኤች.አይ.ቪ የትኞቹን ፍጥረታት ብቻ የሚያጠቃ ቫይረስ ነው?",
+                options: [
+                    { key: "ሀ", text: "ሰውን ብቻ" },
+                    { key: "ለ", text: "እንስሳትን ብቻ" },
+                    { key: "ሐ", text: "ዕፅዋትን ብቻ" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ኤች.አይ.ቪ (HIV) የሰውን ልጅ በሽታ የመከላከል አቅምን ብቻ የሚያጠቃ ልዩ ቫይረስ ነው።",
+                explanationEn: "HIV stands for Human Immunodeficiency Virus; it specifically hosts in and infects humans only."
+            },
+            {
+                id: 23,
+                question: "ትክክለኛ የትራፊክ ህግ የሆነው የትኛው ነው?",
+                options: [
+                    { key: "ሀ", text: "መኪና ፊት መሮጥ" },
+                    { key: "ለ", text: "የሜዳ አህያ መስመር መጠቀም" },
+                    { key: "ሐ", text: "ያለ መብራት መጓዝ" }
+                ],
+                correct: "ለ",
+                explanationAm: "የሜዳ አህያ መስመርን በመጠቀም መንገድ ማቋረጥ ትክክለኛ እና ደህንነቱ የተጠበቀ የመንገድ ህግ አጠቃቀም ነው።",
+                explanationEn: "Utilizing the designated zebra crossing is the safest and legally correct way to cross a road."
+            },
+            {
+                id: 24,
+                question: "ከተሸከርካሪ አደጋ ራሳችንን ለመጠበቅ የት መጫወት የለብንም?",
+                options: [
+                    { key: "ሀ", text: "በቤት ውስጥ" },
+                    { key: "ለ", text: "በተሽከርካሪ መንገድ ላይ" },
+                    { key: "ሐ", text: "በትምህርት ቤት ሜዳ" }
+                ],
+                correct: "ለ",
+                explanationAm: "ተሽከርካሪዎች በከፍተኛ ፍጥነት ስለሚንቀሳቀሱበት በተሽከርካሪ መንገድ ላይ መጫወት ፍጹም የተከለከለ ነው።",
+                explanationEn: "To protect ourselves from traffic accidents, we should never play on roads reserved for vehicles."
+            },
+            {
+                id: 25,
+                question: "በኤች.አይ.ቪ የተያዘን ጓደኛ አብሮ መጫወትና ማጥናት ምን ጥቅም አለው?",
+                options: [
+                    { key: "ሀ", text: "በሽታውን ያጠፋል" },
+                    { key: "ለ", text: "ደስታና ተስፋ ይሰጠዋል" },
+                    { key: "ሐ", text: "በሽታ ያስተላልፋል" }
+                ],
+                correct: "ለ",
+                explanationAm: "በኤች.አይ.ቪ የተያዘን ልጅ አቅፎ ማበረታታት፣ መጫወት እና መማር የስነ-ልቦና ጥንካሬ እና ትልቅ ደስታ ይሰጠዋል።",
+                explanationEn: "Playing and studying with friends living with HIV gives them hope, happiness, and moral support."
+            },
+            {
+                id: 26,
+                question: "መንገድ ስናቋርጥ መጀመሪያ ወዴት እንመለከታለን?",
+                options: [
+                    { key: "ሀ", text: "ወደ ግራ" },
+                    { key: "ለ", text: "ወደ ሰማይ" },
+                    { key: "ሐ", text: "ወደ ኋላ" }
+                ],
+                correct: "ሀ",
+                explanationAm: "በኢትዮጵያ የቀኝ አሽከርካሪ ህግ መሰረት መጀመሪያ በቅርብ የሚመጣውን መኪና ለማየት ወደ ግራ እንመለከታለን።",
+                explanationEn: "We look left first because vehicles in the nearest lane are coming from the left in right-hand driving systems."
+            },
+            {
+                id: 27,
+                question: "የትራፊክ መብራት ጥቅሙ ምንድን ነው?",
+                options: [
+                    { key: "ሀ", text: "መንገድ ለማስዋብ" },
+                    { key: "ለ", text: "አደጋን ለመከላከል" },
+                    { key: "ሐ", text: "መኪናዎችን ለማብዛት" }
+                ],
+                correct: "ለ",
+                explanationAm: "የኮንትሮል ወይም የትራፊክ መብራቶች ዋና ዓላማ የተሽከርካሪዎችን ፍሰት በማስተካከል አደጋን ማስወገድ ነው።",
+                explanationEn: "The primary purpose of traffic lights is to regulate flow and prevent road accidents."
+            },
+            {
+                id: 28,
+                question: "ከሚከተሉት ውስጥ ስለታም ነገር የሆነው የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "ደብተር" },
+                    { key: "ለ", text: "ምላጭ" },
+                    { key: "ሐ", text: "እርሳስ" }
+                ],
+                correct: "ለ",
+                explanationAm: "ምላጭ ቆዳን ሊቆርጥ እና ደም ሊያፈስ የሚችል በጣም ስለታም እና አደገኛ ቁስ ነው።",
+                explanationEn: "A razor blade is a sharp, dangerous object that can easily cut skin and cause bleeding."
+            },
+            {
+                id: 29,
+                question: "ኤድስ መድኃኒት ያለው በሽታ ነው ወይስ የሌለው?",
+                options: [
+                    { key: "ሀ", text: "ሙሉ ፈዋሽ መድኃኒት የለውም" },
+                    { key: "ለ", text: "አለው" },
+                    { key: "ሐ", text: "ቀላል ጉንፋን ነው" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ኤድስ በአሁኑ ጊዜ የቫይረሱን ቁጥር የሚቆጣጠር የዕድሜ ማራዘሚያ እንጂ ሙሉ በሙሉ የሚያድን ፈዋሽ መድኃኒት የለውም።",
+                explanationEn: "AIDS does not have a permanent cure yet, though antiviral medications exist to manage the virus and prolong life."
+            },
+            {
+                id: 30,
+                question: "መኪና ሲመጣ መንገድ ላይ መቆም ምን ያመጣል?",
+                options: [
+                    { key: "ሀ", text: "ሽልማት" },
+                    { key: "ለ", text: "የአካል ጉዳትና አደጋ" },
+                    { key: "ሐ", text: "ጤንነት" }
+                ],
+                correct: "ለ",
+                explanationAm: "መኪናዎች በሚመጡበት ሰዓት መንገድ ላይ መቆም በከባድ ተሽከርካሪ በመገጨት ለአካል ጉዳት አልፎም ለሞት ያጋልጣል።",
+                explanationEn: "Standing in the middle of a road when a car is approaching leads to life-threatening accidents and physical injuries."
+            },
+            {
+                id: 31,
+                question: "ከሚከተሉት ውስጥ ንፅህናን የማይጠብቅ ተግባር የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "በቆሻሻ መጫወት" },
+                    { key: "ለ", text: "ጥርስን መቦረሽ" },
+                    { key: "ሐ", text: "ልብስ ማጠብ" }
+                ],
+                correct: "ሀ",
+                explanationAm: "በቆሻሻ መጫወት የተለያዩ ተላላፊ በሽታዎችን የሚያመጡ ጀርሞችንና ባክቴሪያዎችን ስለሚያስተላልፍ ንፅህናን የማይጠብቅ ተግባር ነው።",
+                explanationEn: "Playing with dirt/waste exposes individuals to harmful microbes, which is a highly unhygienic practice."
+            },
+            {
+                id: 32,
+                question: "ምግብ ከመብላታችን በፊት እጃችንን በምን መታጠብ አለብን?",
+                options: [
+                    { key: "ሀ", text: "በውሃ ብቻ" },
+                    { key: "ለ", text: "በውሃና በሳሙና" },
+                    { key: "ሐ", text: "በፎጣ ብቻ" }
+                ],
+                correct: "ለ",
+                explanationAm: "በእጃችን ላይ ያሉ ጀርሞችን ሙሉ በሙሉ ለማጥፋት ምግብ ከመብላታችን በፊት ሁልጊዜ እጃችንን በውሃና በሳሙና መታጠብ አለብን።",
+                explanationEn: "Washing hands with both water and soap is critical to eliminate micro-organisms before handling food."
+            },
+            {
+                id: 33,
+                question: "ጥርሳችን እንዳይበላሽ በቀን ቢያንስ ስንት ጊዜ መቦረሽ አለበት?",
+                options: [
+                    { key: "ሀ", text: "2 ጊዜ" },
+                    { key: "ለ", text: "በሳምንት አንድ ጊዜ" },
+                    { key: "ሐ", text: "በፍጹም" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ጥርሳችን በባክቴሪያዎች እንዳይበላሽ እና ጤናማ ሆኖ እንዲቆይ በቀን ቢያንስ ሁለት ጊዜ (ጠዋት እና ማታ) መቦረሽ አለበት።",
+                explanationEn: "Brushing teeth at least twice a day (morning and night) protects dental health and prevents cavities."
+            },
+            {
+                id: 34,
+                question: "ቆሻሻን የት መጣል ይኖርብናል?",
+                options: [
+                    { key: "ሀ", text: "መንገድ ላይ" },
+                    { key: "ለ", text: "በቆሻሻ ቅርጫት ውስጥ" },
+                    { key: "ሐ", text: "በየደጃፉ" }
+                ],
+                correct: "ለ",
+                explanationAm: "ቆሻሻን በቆሻሻ ቅርጫት (ቢን) ውስጥ መጣል አካባቢያችን ንፁህና ከበሽታ የጸዳ እንዲሆን ያደርጋል።",
+                explanationEn: "Litter should always be discarded in trash bins to maintain public health and sanitation."
+            },
+            {
+                id: 35,
+                question: "ከሚከተሉት ውስጥ የጤናማ ምግብ ምንጭ የሆነው የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "አትክልትና ፍራፍሬ" },
+                    { key: "ለ", text: "የተበላሸ ስጋ" },
+                    { key: "ሐ", text: "ያልተሸፈነ ምግብ" }
+                ],
+                correct: "ሀ",
+                explanationAm: "አዲስና ትኩስ የሆኑ አትክልትና ፍራፍሬዎች ለሰውነታችን ቫይታሚንና ማዕድናትን የሚሰጡ ጤናማ የምግብ ምንጮች ናቸው።",
+                explanationEn: "Fresh fruits and vegetables are excellent natural sources of vitamins and minerals crucial for health."
+            },
+            {
+                id: 36,
+                question: "ንፁህ ያልሆነ ውሃ መጠጣት ምን ሊያስከትል ይችላል?",
+                options: [
+                    { key: "ሀ", text: "ጥንካሬ" },
+                    { key: "ለ", text: "የሆድ ህምና በሽታ" },
+                    { key: "ሐ", text: "እድገት" }
+                ],
+                correct: "ለ",
+                explanationAm: "ንፁህ ያልሆነ ውሃ እንደ ተቅማጥ እና ታይፎይድ ያሉ የሆድ ህመሞችን እና ተላላፊ በሽታዎችን ያስከትላል።",
+                explanationEn: "Drinking contaminated water leads to waterborne illnesses, stomach pain, and infections."
+            },
+            {
+                id: 37,
+                question: "ጥፍርን አዘውትሮ መቁረጥ ለምን ይጠቅማል?",
+                options: [
+                    { key: "ሀ", text: "ቆሻሻ እንዳይዝ" },
+                    { key: "ለ", text: "ቆንጆ እንዳይሆን" },
+                    { key: "ሐ", text: "ለመጫወት" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ረጅም ጥፍር ውስጥ ቆሻሻና ጀርሞች በቀላሉ ስለሚጠራቀሙ አዘውትሮ መቁረጥ ለጤናችን እጅግ አስፈላጊ ነው።",
+                explanationEn: "Keeping fingernails short prevents accumulation of dirt and dangerous pathogens underneath."
+            },
+            {
+                id: 38,
+                question: "ለዕድገታችንና ለጤንነታችን የሚጠቅመን ነገር ምንድን ነው?",
+                options: [
+                    { key: "ሀ", text: "የተመጣጠነ ምግብ" },
+                    { key: "ለ", text: "ከረሜላ ብቻ" },
+                    { key: "ሐ", text: "ቸኮሌትና ከረሜላ" }
+                ],
+                correct: "ሀ",
+                explanationAm: "የተመጣጠነ ምግብ ሰውነታችን እንዲያድግ፣ እንዲጠነክርና ከበሽታዎች እንዲጠበቅ ያደርጋል።",
+                explanationEn: "A balanced diet provides all necessary nutrients required for physical growth and health."
+            },
+            {
+                id: 39,
+                question: "ትምህርት ቤት ውስጥ መጣላት እንዴት ያለ ባህሪ ነው?",
+                options: [
+                    { key: "ሀ", text: "ጥሩ ባህሪ" },
+                    { key: "ለ", text: "መጥፎ ባህሪ" },
+                    { key: "ሐ", text: "ጨዋነት" }
+                ],
+                correct: "ለ",
+                explanationAm: "ከጓደኞች ጋር በትምህርት ቤት ውስጥ መጣላት መጥፎ ባህሪ ነው፤ ይልቁንም በሰላምና በፍቅር መጫወት ይገባል።",
+                explanationEn: "Fighting with peers at school is a negative behavior; students should always practice peaceful dialogue."
+            },
+            {
+                id: 40,
+                question: "መምህራንን እና ወላጆችን መታዘዝ ምንን ያሳያል?",
+                options: [
+                    { key: "ሀ", text: "ጨዋነትን" },
+                    { key: "ለ", text: "ፍርሃትን" },
+                    { key: "ሐ", text: "ሰነፍ መሆንን" }
+                ],
+                correct: "ሀ",
+                explanationAm: "መምህራንን እና ወላጆችን በጥሩ ስነ-ምግባር መታዘዝ እና ማክበር የትልቅ ጨዋነት መገለጫ ነው።",
+                explanationEn: "Obeying and respecting parents and teachers is a core sign of good discipline and manners."
+            },
+            {
+                id: 41,
+                question: "ከሚከተሉት ውስጥ የቤት እንስሳ የሆነው የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "አንበሳ" },
+                    { key: "ለ", text: "በግ" },
+                    { key: "ሐ", text: "ጅብ" }
+                ],
+                correct: "ለ",
+                explanationAm: "በግ በቤት ውስጥ ተንከባክበን የምናሳድገው እና ምንም ጉዳት የማያደርስ የቤት እንስሳ ነው።",
+                explanationEn: "Sheep are domestic animals reared at home for meat, wool, and income, presenting no danger."
+            },
+            {
+                id: 42,
+                question: "የበረሃ እንስሳ (የዱር እንስሳ) የሆነው የትኛው ነው?",
+                options: [
+                    { key: "ሀ", text: "ነብር" },
+                    { key: "ለ", text: "በግ" },
+                    { key: "ሐ", text: "ድመት" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ነብር በዱር ወይም በበረሃ ውስጥ የሚኖር፣ የሚያድን ስጋ በል የዱር እንስሳ ነው።",
+                explanationEn: "Leopards (tigers) are wild animals that live in natural habitats like forests or savannas."
+            },
+            {
+                id: 43,
+                question: "ዕፅዋት ለማደግ ምን ምን ያስፈልጋቸዋል?",
+                options: [
+                    { key: "ሀ", text: "አፈር፣ ውሃና አየር" },
+                    { key: "ለ", text: "ጨለማ ብቻ" },
+                    { key: "ሐ", text: "ድንጋይ ብቻ" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ዕፅዋት የራሳቸውን ምግብ አዘጋጅተው ለማደግ አፈር፣ ውሃ፣ አየር እና የፀሐይ ብርሃን ያስፈልጋቸዋል።",
+                explanationEn: "Plants require soil, water, fresh air, and sunlight to carry out photosynthesis and grow."
+            },
+            {
+                id: 44,
+                question: "ከላም ምን እናገኛለን?",
+                options: [
+                    { key: "ሀ", text: "ወተትና ስጋ" },
+                    { key: "ለ", text: "እንቁላል" },
+                    { key: "ሐ", text: "ማር" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ላም ለሰው ልጅ እጅግ ጠቃሚ የሆኑ እንደ ወተት እና ስጋ ያሉ ምግቦችን ትሰጠናለች።",
+                explanationEn: "Cows provide humans with highly nutritious dairy products like milk, as well as beef."
+            },
+            {
+                id: 45,
+                question: "ከዶሮ የምናገኘው ምግብ የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "ማር" },
+                    { key: "ለ", text: "እንቁላልና ስጋ" },
+                    { key: "ሐ", text: "ወተት" }
+                ],
+                correct: "ለ",
+                explanationAm: "ዶሮ የፕሮቲን ምንጭ የሆኑትን ጠቃሚ እንቁላል እና ስጋን ትሰጠናለች።",
+                explanationEn: "Chickens are domesticated poultry that yield nutrient-dense eggs and meat."
+            },
+            {
+                id: 46,
+                question: "አካባቢያችንን አረንጓዴ ለማድረግ ምን ማድረግ አለብን?",
+                options: [
+                    { key: "ሀ", text: "ችግኞችን መትከል" },
+                    { key: "ለ", text: "ዛፎችን መቁረጥ" },
+                    { key: "ሐ", text: "ሳር ማቃጠል" }
+                ],
+                correct: "ሀ",
+                explanationAm: "አዲስ ችግኞችን መትከል እና መንከባከብ አካባቢያችን አረንጓዴ፣ አየር ንፁህ እና ውብ እንዲሆን ያደርጋል።",
+                explanationEn: "Planting young tree saplings expands green cover, enriches oxygen, and purifies the environment."
+            },
+            {
+                id: 47,
+                question: "ከሚከተሉት ውስጥ የእይታ አካል የሆነው የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "ጆሮ" },
+                    { key: "ለ", text: "ዓይን" },
+                    { key: "ሐ", text: "አፍንጫ" }
+                ],
+                correct: "ለ",
+                explanationAm: "ዓይን በዙሪያችን ያሉትን ነገሮች፣ ቀለማትን እና ቅርጾችን ለማየት የምንጠቀምበት የስሜት አካል ነው።",
+                explanationEn: "The eyes are the sensory organs responsible for vision and sight."
+            },
+            {
+                id: 48,
+                question: "ድምፅ ለመስማት የሚያገለግለን የስሜት አካል የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "ጆሮ" },
+                    { key: "ለ", text: "ምላስ" },
+                    { key: "ሐ", text: "ዓይን" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ጆሮ የተለያዩ ድምፆችን እና ንግግሮችን ለመስማት የሚረዳን ዋና የስሜት አካል ነው።",
+                explanationEn: "Ears are the primary auditory organs that enable humans to sense sound waves."
+            },
+            {
+                id: 49,
+                question: "የተለያዩ ምግቦችን ለመቅመስ የሚረዳን አካል የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "ጥርስ" },
+                    { key: "ለ", text: "ምላስ" },
+                    { key: "ሐ", text: "ከንፈር" }
+                ],
+                correct: "ለ",
+                explanationAm: "ምላስ የተለያዩ ምግቦችን ጣዕም (ጣፋጭ፣ ጨው፣ ኮምጣጣ ወይም መራራ) ለመለየት ይረዳል።",
+                explanationEn: "The tongue contains taste buds that identify different flavors (sweet, salty, sour, or bitter)."
+            },
+            {
+                id: 50,
+                question: "ሸታን ወይም መዓዛን ለማሽተት የሚጠቅመን አካል የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "ዓይን" },
+                    { key: "ለ", text: "አፍንጫ" },
+                    { key: "ሐ", text: "ጆሮ" }
+                ],
+                correct: "ለ",
+                explanationAm: "አፍንጫ ጥሩ እና መጥፎ ሽታዎችን፣ መዓዛዎችን እንዲሁም ለመተንፈስ የሚረዳን አካል ነው።",
+                explanationEn: "The nose is the respiratory and olfactory organ responsible for detecting scents and odors."
+            },
+            {
+                id: 51,
+                question: "የሰውነት ሙቀትና ቅዝቃዜን በምን እንገነዘባለን?",
+                options: [
+                    { key: "ሀ", text: "በቆዳ (በንክኪ)" },
+                    { key: "ለ", text: "በፀጉር" },
+                    { key: "ሐ", text: "በጥፍር" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ቆዳችን ንክኪዎችን፣ ሙቀትን፣ ቅዝቃዜን እና ህመምን በፍጥነት እንድንገነዘብ የሚረዳን ትልቅ የስሜት አካል ነው።",
+                explanationEn: "Our skin acts as a tactile sensory organ to perceive temperatures, textures, and pain."
+            },
+            {
+                id: 52,
+                question: "በቀን ውስጥ በብዛት ልንጠጣው የሚገባው ንጹህ ፈሳሽ የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "ውሃ" },
+                    { key: "ለ", text: "ለስላሳ መጠጥ" },
+                    { key: "ሐ", text: "ሻይ" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ውሃ ሰውነታችን ጤናማ ሆኖ እንዲሰራ እና ቆሻሻዎችን እንዲያስወግድ በቀን በብዛት መወሰድ ያለበት ፈሳሽ ነው።",
+                explanationEn: "Clean water is the most vital fluid needed daily to support life and metabolic functions."
+            },
+            {
+                id: 53,
+                question: "ትምህርት ቤት በሰዓቱ መግባት ምንን ያሳያል?",
+                options: [
+                    { key: "ሀ", text: "ሰዓት ማክበርን" },
+                    { key: "ለ", text: "ሰነፍ መሆንን" },
+                    { key: "ሐ", text: "መፍራትን" }
+                ],
+                correct: "ሀ",
+                explanationAm: "በትምህርት ቤትም ሆነ በሌላ ቦታ ሰዓት አክባሪ መሆን ጥሩ ስነ-ምግባር እና ሃላፊነትን መውሰድን ያሳያል።",
+                explanationEn: "Arriving at school on time displays punctuality, self-discipline, and strong personal character."
+            },
+            {
+                id: 54,
+                question: "አየሩ ሲቀዘቅዝ ምን አይነት ልብስ መልበስ አለብን?",
+                options: [
+                    { key: "ሀ", text: "ቀጭን ልብስ" },
+                    { key: "ለ", text: "ወፍራም (ሙቅ) ልብስ" },
+                    { key: "ሐ", text: "ምንም" }
+                ],
+                correct: "ለ",
+                explanationAm: "ብርድ ወይም ቅዝቃዜ በሚኖርበት ጊዜ ከጉንፋን እና በሽታ ለመጠበቅ ወፍራም ወይም የሙቀት ልብሶችን መልበስ አለብን።",
+                explanationEn: "During cold weather, wearing thick or warm clothing protects the body from hypothermia and colds."
+            },
+            {
+                id: 55,
+                question: "የክፍል ጓደኞቻችንን ዕቃ ያለ ፈቃድ መውሰድ ምን ይባላል?",
+                options: [
+                    { key: "ሀ", text: "ስርቆት (መጥፎ ባህሪ)" },
+                    { key: "ለ", text: "ጓደኝነት" },
+                    { key: "ሐ", text: "ጨዋነት" }
+                ],
+                correct: "ሀ",
+                explanationAm: "የሌላን ሰው ንብረት ያለፈቃድ በድብቅ መውሰድ ስርቆት ሲሆን ይህም በትምህርት ቤትም ሆነ በህብረተሰብ ዘንድ እጅግ መጥፎ ባህሪ ነው።",
+                explanationEn: "Taking classmate's items without prior permission constitutes theft, which is highly undisciplined."
+            },
+            {
+                id: 56,
+                question: "በየቀኑ የአካል ብቃት እንቅስቃሴ ማድረግ ምን ጥቅም አለው?",
+                options: [
+                    { key: "ሀ", text: "ሰነፍ ያደርጋል" },
+                    { key: "ለ", text: "ሰውነትን ያጠነክራል" },
+                    { key: "ሐ", text: "ያሳምማል" }
+                ],
+                correct: "ለ",
+                explanationAm: "የአካል ብቃት እንቅስቃሴ ማድረግ የልብ ስራን ያሻሽላል፣ ጡንቻዎቻችንን እና አጥንቶቻችንን ያጠነክራል።",
+                explanationEn: "Daily physical exercise strengthens bones, builds muscles, and keeps the body energetic."
+            },
+            {
+                id: 57,
+                question: "ከሚከተሉት ውስጥ ጎጂ ልማዳዊ ድርጊት የቱ ነው?",
+                options: [
+                    { key: "ሀ", text: "ሴት ህፃናትን መግረዝ" },
+                    { key: "ለ", text: "ህፃናትን ማስተማር" },
+                    { key: "ሐ", text: "ፍቅር መስጠት" }
+                ],
+                correct: "ሀ",
+                explanationAm: "የሴት ህፃናት ግርዛት በጤና እና በስነ-ልቦና ላይ ከፍተኛ ጉዳት የሚያደርስ በመሆኑ በጥብቅ የሚወገዝ ጎጂ ልማዳዊ ድርጊት ነው።",
+                explanationEn: "Female Genital Mutilation (FGM) is a highly harmful traditional practice that violates human rights and causes severe trauma."
+            },
+            {
+                id: 58,
+                question: "ታመን ስንመረመር ሐኪም የሚሰጠንን መድኃኒት እንዴት መውሰድ አለብን?",
+                options: [
+                    { key: "ሀ", text: "በታዘዘው መመሪያ መሰረት" },
+                    { key: "ለ", text: "በአንድ ጊዜ ሁሉንም" },
+                    { key: "ሐ", text: "መተው" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ሀኪም የታዘዘልንን መድሃኒት በተገቢው መጠን እና ሰዓት በጥንቃቄ መውሰድ ቶሎ ለመፈወስ ይረዳል።",
+                explanationEn: "Medication must be taken strictly in accordance with the doctor's prescription to ensure safety and recovery."
+            },
+            {
+                id: 59,
+                question: "ክፍል ውስጥ መምህር ሲያስተምር ምን ማድረግ ይገባል?",
+                options: [
+                    { key: "ሀ", text: "በዝምታ ማዳመጥ" },
+                    { key: "ለ", text: "መጮህና መጫወት" },
+                    { key: "ሐ", text: "መተኛት" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ክፍል ውስጥ መምህር ትምህርት ሲያስረዳ በዝምታ ማዳመጥ እና ትኩረት ማድረግ ትምህርቱን በሚገባ ለመረዳት ብቸኛው መንገድ ነው።",
+                explanationEn: "Listening attentively in absolute silence when a teacher is instructing is vital to learning success."
+            },
+            {
+                id: 60,
+                question: "ከትምህርት ቤት ስንመለስ መጀመሪያ ምን ማድረግ አለብን?",
+                options: [
+                    { key: "ሀ", text: "የቤት ስራ መስራት" },
+                    { key: "ለ", text: "እቃ መስበር" },
+                    { key: "ሐ", text: "መንገድ ላይ መተኛት" }
+                ],
+                correct: "ሀ",
+                explanationAm: "ከትምህርት ቤት ከተመለስን በኋላ የተማርነውን ለመድገም እና ውጤታማ ለመሆን መጀመሪያ የተሰጡንን የቤት ስራዎችን መስራት አለብን።",
+                explanationEn: "Upon returning home, prioritizing school homework helps consolidate learning and build academic excellence."
+            }
+        ];
+
+        // Global State variables
+        let currentQuestionIndex = 0;
+        let studentResponses = {}; // format: { questionId: selectedKey }
+        let timerInterval = null;
+        let startTime = null;
+        let studentInfo = { name: "", id: "", section: "" };
+
+        // HTML Elements
+        const screenWelcome = document.getElementById('screen-welcome');
+        const screenQuiz = document.getElementById('screen-quiz');
+        const screenResults = document.getElementById('screen-results');
+        const formRegistration = document.getElementById('form-registration');
+        
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const explanationCard = document.getElementById('explanation-card');
+        const progressText = document.getElementById('quiz-progress-text');
+        const progressBar = document.getElementById('quiz-progress-bar');
+        const quizTimer = document.getElementById('quiz-timer');
+        const quizBadge = document.getElementById('quiz-badge');
+
+        const btnBack = document.getElementById('btn-back');
+        const btnNext = document.getElementById('btn-next');
+        const btnFinish = document.getElementById('btn-finish');
+        const btnReset = document.getElementById('btn-reset');
+        const btnSendEmail = document.getElementById('btn-send-email');
+        const emailNotif = document.getElementById('email-notif');
+
+        // Results Display Elements
+        const resultGreeting = document.getElementById('result-greeting');
+        const resultScorePercentage = document.getElementById('result-score-percentage');
+        const resultScoreRatio = document.getElementById('result-score-ratio');
+        const resStudentName = document.getElementById('res-student-name');
+        const resStudentId = document.getElementById('res-student-id');
+        const resStudentClass = document.getElementById('res-student-class');
+        const resStudentTime = document.getElementById('res-student-time');
+        const resultsBreakdownContainer = document.getElementById('results-breakdown-container');
+        const trophyBg = document.getElementById('badge-trophy-bg');
+
+        // Initial Event Handlers
+        formRegistration.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Capture student inputs
+            studentInfo.name = document.getElementById('student-name').value.trim();
+            studentInfo.id = document.getElementById('student-id').value.trim();
+            studentInfo.section = document.getElementById('student-class').value;
+
+            // Smoothly swap screens
+            screenWelcome.classList.add('hidden');
+            screenQuiz.classList.remove('hidden');
+            quizBadge.classList.remove('hidden');
+
+            // Initialize Exam State
+            currentQuestionIndex = 0;
+            studentResponses = {};
+            startTimer();
+            renderQuestion(currentQuestionIndex);
+        });
+
+        // Time Management Helper
+        function startTimer() {
+            startTime = new Date();
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                const now = new Date();
+                const diff = now - startTime;
+                
+                const hrs = Math.floor(diff / 3600000).toString().padStart(2, '0');
+                const mins = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+                const secs = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
+                
+                quizTimer.innerHTML = `<i class="fa-regular fa-clock mr-1 text-slate-500"></i>${hrs}:${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            const now = new Date();
+            const diff = now - startTime;
+            const hrs = Math.floor(diff / 3600000).toString().padStart(2, '0');
+            const mins = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+            const secs = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
+            return `${hrs}:${mins}:${secs}`;
+        }
+
+        // Render Current Question Function
+        function renderQuestion(index) {
+            const currentQuestion = examQuestions[index];
+            
+            // Update Progress Header
+            progressText.innerText = `${index + 1} / ${examQuestions.length}`;
+            const percentage = ((index + 1) / examQuestions.length) * 100;
+            progressBar.style.width = `${percentage}%`;
+
+            // Setup Question text
+            questionText.innerText = `${currentQuestion.id}. ${currentQuestion.question}`;
+
+            // Render Options
+            optionsContainer.innerHTML = '';
+            const userPreviousSelection = studentResponses[currentQuestion.id];
+
+            currentQuestion.options.forEach(opt => {
+                const optionBtn = document.createElement('button');
+                optionBtn.type = 'button';
+                optionBtn.className = `w-full text-left p-4 rounded-2xl border text-sm md:text-base font-semibold flex items-center justify-between transition-all duration-200 outline-none select-none `;
+                
+                // Content of option button
+                optionBtn.innerHTML = `
+                    <div class="flex items-center space-x-3.5">
+                        <span class="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-extrabold flex items-center justify-center text-sm transition-all duration-200" id="badge-${opt.key}">
+                            ${opt.key}
+                        </span>
+                        <span class="text-slate-800 leading-tight">${opt.text}</span>
+                    </div>
+                    <div id="status-icon-${opt.key}" class="hidden flex items-center justify-center"></div>
+                `;
+
+                // If user already answered, style this option immediately according to correctness
+                if (userPreviousSelection) {
+                    optionBtn.disabled = true; // Lock choice
+                    styleOptionState(optionBtn, opt.key, userPreviousSelection, currentQuestion.correct);
+                } else {
+                    // Attach active listener if not yet answered
+                    optionBtn.addEventListener('click', () => {
+                        selectOption(currentQuestion.id, opt.key);
+                    });
+                    // Hover styling
+                    optionBtn.classList.add('border-slate-200', 'bg-white', 'hover:border-brand-500', 'hover:bg-brand-50/20', 'active:bg-brand-50/50');
+                }
+
+                optionsContainer.appendChild(optionBtn);
+            });
+
+            // If answered, show detailed explanation box, otherwise hide it
+            if (userPreviousSelection) {
+                renderExplanation(currentQuestion);
+            } else {
+                explanationCard.classList.add('hidden');
+            }
+
+            // Manage navigation buttons visibility/state
+            btnBack.disabled = (index === 0);
+            
+            // Show finish button only on the last question
+            if (index === examQuestions.length - 1) {
+                btnNext.classList.add('hidden');
+                btnFinish.classList.remove('hidden');
+            } else {
+                btnNext.classList.remove('hidden');
+                btnFinish.classList.add('hidden');
+            }
+        }
+
+        // Action when student clicks an option
+        function selectOption(questionId, selectedKey) {
+            // Save state
+            studentResponses[questionId] = selectedKey;
+            
+            // Re-render immediately to lock buttons and showcase instant feedback
+            renderQuestion(currentQuestionIndex);
+        }
+
+        // Apply visual styling states (Success / Failure / Neutral)
+        function styleOptionState(element, optionKey, userSelection, correctKey) {
+            const badge = element.querySelector(`#badge-${optionKey}`);
+            const statusIcon = element.querySelector(`#status-icon-${optionKey}`);
+            statusIcon.classList.remove('hidden');
+
+            if (optionKey === correctKey) {
+                // This option is the correct one!
+                element.className = "w-full text-left p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-50/40 text-sm md:text-base font-semibold flex items-center justify-between transition-all duration-200";
+                badge.className = "w-8 h-8 rounded-full bg-emerald-500 text-white font-extrabold flex items-center justify-center text-sm";
+                statusIcon.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 text-xl"></i>`;
+            } else if (optionKey === userSelection) {
+                // This was the user's incorrect choice!
+                element.className = "w-full text-left p-4 rounded-2xl border-2 border-red-500 bg-red-50/40 text-sm md:text-base font-semibold flex items-center justify-between transition-all duration-200";
+                badge.className = "w-8 h-8 rounded-full bg-red-500 text-white font-extrabold flex items-center justify-center text-sm";
+                statusIcon.innerHTML = `<i class="fa-solid fa-circle-xmark text-red-600 text-xl"></i>`;
+            } else {
+                // Other non-selected wrong answers
+                element.className = "w-full text-left p-4 rounded-2xl border border-slate-100 bg-slate-50 opacity-60 text-sm md:text-base font-semibold flex items-center justify-between transition-all duration-200";
+                badge.className = "w-8 h-8 rounded-full bg-slate-200 text-slate-400 font-extrabold flex items-center justify-center text-sm";
+                statusIcon.classList.add('hidden');
+            }
+        }
+
+        // Render detailed feedback and pedagogical rationale
+        function renderExplanation(question) {
+            const userSelection = studentResponses[question.id];
+            const isCorrect = (userSelection === question.correct);
+
+            explanationCard.innerHTML = `
+                <div class="rounded-2xl border ${isCorrect ? 'bg-emerald-50/30 border-emerald-100 text-emerald-950' : 'bg-red-50/30 border-red-100 text-red-950'} p-5 mt-4 space-y-3.5">
+                    <div class="flex items-center space-x-2.5">
+                        <span class="flex items-center justify-center w-7 h-7 rounded-full ${isCorrect ? 'bg-emerald-500' : 'bg-red-500'} text-white text-xs font-bold">
+                            <i class="${isCorrect ? 'fa-solid fa-check' : 'fa-solid fa-exclamation'}"></i>
+                        </span>
+                        <h4 class="font-extrabold text-sm md:text-base">
+                            ${isCorrect ? 'ትክክለኛ መልስ! (Correct Answer!)' : 'የተሳሳተ ምላሽ! (Incorrect Answer!)'}
+                        </h4>
+                    </div>
+                    <div class="space-y-2.5 text-xs md:text-sm leading-relaxed text-slate-700">
+                        <div>
+                            <span class="font-bold text-slate-900 block mb-0.5">አማርኛ ማብራሪያ፡</span>
+                            <p>${question.explanationAm}</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-200/50">
+                            <span class="font-bold text-slate-900 block mb-0.5">English Explanation:</span>
+                            <p class="italic">${question.explanationEn}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            explanationCard.classList.remove('hidden');
+        }
+
+        // Navigation actions
+        btnBack.addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion(currentQuestionIndex);
+            }
+        });
+
+        btnNext.addEventListener('click', () => {
+            if (currentQuestionIndex < examQuestions.length - 1) {
+                currentQuestionIndex++;
+                renderQuestion(currentQuestionIndex);
+            }
+        });
+
+        btnFinish.addEventListener('click', () => {
+            // Check if any question remains unanswered
+            const answeredCount = Object.keys(studentResponses).length;
+            if (answeredCount < examQuestions.length) {
+                const unansweredCount = examQuestions.length - answeredCount;
+                const confirmSubmit = confirm(`ሁሉንም ጥያቄዎች አልመለሱም። ገና ያልተመለሱ ${unansweredCount} ጥያቄዎች አሉ። ፈተናውን ማጠናቀቅ ይፈልጋሉ?\n(You have ${unansweredCount} unanswered questions. Do you want to submit anyway?)`);
+                if (!confirmSubmit) return;
+            }
+            evaluateQuizAndDisplayResults();
+        });
+
+        // Evaluate exam and update result page details
+        function evaluateQuizAndDisplayResults() {
+            const timeElapsed = stopTimer();
+            let score = 0;
+
+            examQuestions.forEach(q => {
+                if (studentResponses[q.id] === q.correct) {
+                    score++;
+                }
+            });
+
+            const percentScore = Math.round((score / examQuestions.length) * 100);
+
+            // Populate text elements
+            resStudentName.innerText = studentInfo.name;
+            resStudentId.innerText = studentInfo.id;
+            resStudentClass.innerText = studentInfo.section;
+            resStudentTime.innerText = timeElapsed;
+
+            resultScorePercentage.innerText = `${percentScore}%`;
+            resultScoreRatio.innerText = `${score} / ${examQuestions.length} ጥያቄዎች`;
+
+            // Greeting and Trophy Dynamic Changes
+            if (percentScore >= 75) {
+                resultGreeting.innerText = "እንኳን ደስ አሎት! በከፍተኛ ማዕረግ አልፈዋል!";
+                resultScorePercentage.className = "text-4xl font-extrabold block text-emerald-400";
+                trophyBg.className = "fa-solid fa-trophy text-[220px] text-yellow-400";
+            } else if (percentScore >= 50) {
+                resultGreeting.innerText = "መልካም ውጤት! ፈተናውን በተሳካ ሁኔታ አልፈዋል!";
+                resultScorePercentage.className = "text-4xl font-extrabold block text-blue-400";
+                trophyBg.className = "fa-solid fa-award text-[220px] text-blue-400";
+            } else {
+                resultGreeting.innerText = "አይዞዎት! በድጋሚ በመሞከር የተሻለ መስራት ይችላሉ!";
+                resultScorePercentage.className = "text-4xl font-extrabold block text-red-400";
+                trophyBg.className = "fa-solid fa-heart-crack text-[220px] text-red-400";
+            }
+
+            // Render detailed dashboard of correct/wrong choices
+            renderResultsBreakdown();
+
+            // Toggle screens
+            screenQuiz.classList.add('hidden');
+            quizBadge.classList.add('hidden');
+            screenResults.classList.remove('hidden');
+        }
+
+        // Render comprehensive question analytical cards
+        function renderResultsBreakdown() {
+            resultsBreakdownContainer.innerHTML = '';
+
+            examQuestions.forEach(q => {
+                const userSelection = studentResponses[q.id];
+                const isCorrect = (userSelection === q.correct);
+                const unanswered = !userSelection;
+
+                const card = document.createElement('div');
+                card.className = `p-5 rounded-2xl border ${isCorrect ? 'border-emerald-100 bg-emerald-50/20' : unanswered ? 'border-amber-100 bg-amber-50/20' : 'border-red-100 bg-red-50/20'} space-y-3`;
+
+                card.innerHTML = `
+                    <div class="flex items-start justify-between gap-3">
+                        <h4 class="font-bold text-slate-900 text-sm md:text-base leading-snug">
+                            ${q.id}. ${q.question}
+                        </h4>
+                        <span class="px-2.5 py-1 rounded-full text-xs font-bold whitespace-nowrap ${isCorrect ? 'bg-emerald-100 text-emerald-800' : unanswered ? 'bg-amber-100 text-amber-800' : 'bg-red-100 text-red-800'}">
+                            ${isCorrect ? '<i class="fa-solid fa-check mr-1"></i>ትክክል' : unanswered ? '<i class="fa-solid fa-minus mr-1"></i>ያልተመለሰ' : '<i class="fa-solid fa-xmark mr-1"></i>ስህተት'}
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs md:text-sm text-slate-700 pt-1">
+                        <div>
+                            <span class="text-slate-500 font-medium block">የመረጡት መልስ (Your Answer):</span>
+                            <span class="font-bold ${isCorrect ? 'text-emerald-700' : 'text-red-700'}">
+                                ${unanswered ? 'ምንም (None Chosen)' : `${userSelection} - ${q.options.find(o => o.key === userSelection).text}`}
+                            </span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 font-medium block">ትክክለኛ መልስ (Correct Answer):</span>
+                            <span class="font-bold text-emerald-700">
+                                ${q.correct} - ${q.options.find(o => o.key === q.correct).text}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/80 rounded-xl p-3 border border-slate-100 text-xs text-slate-600 mt-2 space-y-1">
+                        <p><span class="font-bold text-slate-800">ማብራሪያ፡</span> ${q.explanationAm}</p>
+                        <p class="italic pt-1 border-t border-slate-100/60"><span class="font-bold text-slate-800">English:</span> ${q.explanationEn}</p>
+                    </div>
+                `;
+
+                resultsBreakdownContainer.appendChild(card);
+            });
+        }
+
+        // Action: Sending scores via preformatted Mail Client Integration
+        btnSendEmail.addEventListener('click', () => {
+            emailNotif.classList.remove('hidden');
+
+            const scoreRatio = resultScoreRatio.innerText;
+            const scorePercentage = resultScorePercentage.innerText;
+            const duration = resStudentTime.innerText;
+
+            let bodyContent = `የአካባቢ ሳይንስ ማጠቃለያ ፈተና ውጤት ሪፖርት\n`;
+            bodyContent += `=========================================\n\n`;
+            bodyContent += `የተማሪው ስም (Full Name): ${studentInfo.name}\n`;
+            bodyContent += `መለያ ቁጥር (ID Number): ${studentInfo.id}\n`;
+            bodyContent += `ክፍል (Class/Section): ${studentInfo.section}\n`;
+            bodyContent += `የፈጀው ጊዜ (Time Taken): ${duration}\n`;
+            bodyContent += `አጠቃላይ ውጤት (Score): ${scoreRatio} (${scorePercentage})\n\n`;
+            bodyContent += `=========================================\n`;
+            bodyContent += `ዝርዝር ምላሾች (Detailed Question Log):\n`;
+
+            examQuestions.forEach(q => {
+                const ans = studentResponses[q.id] || "ያልተመለሰ";
+                const check = (ans === q.correct) ? "✓ [ትክክል]" : "✗ [ስህተት]";
+                bodyContent += `ጥያቄ ${q.id}: የመለሱት [${ans}] | ትክክለኛው [${q.correct}] -> ${check}\n`;
+            });
+
+            bodyContent += `\nሪፖርቱ የተላከው በራስ-አገዝ መገምገሚያ ሥርዓት አማካኝነት ነው።\n`;
+
+            const mailtoLink = `mailto:mesayferedegn2@gmail.com?subject=Grade 1-2 Env Science Exam: ${studentInfo.name} [${studentInfo.id}]&body=${encodeURIComponent(bodyContent)}`;
+            
+            // Create a temporary link element and click to launch email
+            const tempLink = document.createElement('a');
+            tempLink.href = mailtoLink;
+            tempLink.click();
+        });
+
+        // Reset system to re-examine or start new student session
+        btnReset.addEventListener('click', () => {
+            const confirmReset = confirm("እርግጠኛ ነዎት ፈተናውን እንደገና መጀመር ይፈልጋሉ? ያጠራቀሙት ውጤት ይጠፋል።\n(Are you sure you want to restart? All current scores will be cleared.)");
+            if (!confirmReset) return;
+
+            // Reset States
+            studentResponses = {};
+            currentQuestionIndex = 0;
+
+            // Clear inputs
+            document.getElementById('student-name').value = '';
+            document.getElementById('student-id').value = '';
+            document.getElementById('student-class').selectedIndex = 0;
+
+            // Swap Screens Back to Registration Welcome Screen
+            screenResults.classList.add('hidden');
+            emailNotif.classList.add('hidden');
+            screenWelcome.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
